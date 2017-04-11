@@ -1,5 +1,5 @@
 import React from 'react';
-import {browserHistory, Router, Route, Link,IndexRoute,Redirect, IndexLink ,IndexRedirect} from 'react-router';
+import {browserHistory, Router, Route, IndexRoute } from 'react-router';
 import Header from '../component/header';
 import Home from '../component/home';
 import Add from '../container/Add';

@@ -16,23 +16,16 @@ let data = {
 }
 
 const counter = (state = data, action) => {
+		var list = state.list.slice();
     switch (action.type) {
 	  	case "DELETE_MEMBER":
-	  		let list = state.list.filter((item,index)=>{
-	  			return index != action.idx
-	  		})
+	  		list.splice(action.idx,1);
 	  		return Object.assign({}, state, {list:list});
 	  	case "ADD_MEMBER":
 	  		return Object.assign({}, state, {list:[...state.list,action.newItem]});
 	  	case "EDIT_MEMBER":
-	  		let editList = state.list.map((item,index)=>{
-	  			if(index == action.idx){
-	  				return action.newItem
-	  			}else{
-	  				return item
-	  			}
-	  		})
-	  		return Object.assign({}, state, {list:editList}); 
+	  		list.splice(action.idx,1,action.newItem)
+	  		return Object.assign({}, state, {list:list}); 
 	    default:
 	      return state;
   }
